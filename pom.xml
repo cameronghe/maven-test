@@ -25,7 +25,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.99.99</version> <!-- Incorrect version -->
+            <version>2.0.16</version> <!-- Incorrect version -->
         </dependency>
 
         <!-- Google Guava with an incorrect groupId -->
