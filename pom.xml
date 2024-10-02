@@ -1,60 +1,40 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>invalid-dependency-test</artifactId>
+  <version>1.0-SNAPSHOT</version>
 
-    <groupId>com.example</groupId>
-    <artifactId>test-project</artifactId>
-    <version>1.0-SNAPSHOT</version>
+  <dependencies>
+    <!-- Non-existent version of a valid dependency -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>99.99.99</version>  <!-- This version doesn't exist -->
+    </dependency>
 
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+    <!-- Conflicting dependencies -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.9</version>
+    </dependency>
 
-    <dependencies>
-        <!-- JUnit for unit testing with a wrong version -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>99.99.99</version> <!-- Incorrect version -->
-            <scope>test</scope>
-        </dependency>
+    <!-- Conflicting dependency that will cause a build failure -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.0</version> <!-- Version conflict with the previous version -->
+    </dependency>
 
-        <!-- SLF4J with a non-existent version -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.99.99</version> <!-- Incorrect version -->
-        </dependency>
+    <!-- Non-existent dependency -->
+    <dependency>
+      <groupId>com.nonexistent</groupId>
+      <artifactId>non-existent-artifact</artifactId>
+      <version>1.0.0</version> <!-- Non-existent artifact -->
+    </dependency>
+  </dependencies>
 
-        <!-- Google Guava with an incorrect groupId -->
-        <dependency>
-            <groupId>com.google.fake</groupId> <!-- Incorrect groupId -->
-            <artifactId>guava</artifactId>
-            <version>31.0.1-jre</version>
-        </dependency>
-
-        <!-- Apache Commons Lang with a non-existent artifactId -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-nonexistent</artifactId> <!-- Incorrect artifactId -->
-            <version>3.12.0</version>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <!-- Maven Compiler Plugin to specify Java version -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
