@@ -19,14 +19,14 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.9</version>
+      <version>3.17.0</version>
     </dependency>
 
     <!-- Conflicting dependency that will cause a build failure -->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.0</version> <!-- Version conflict with the previous version -->
+      <version>3.17.0</version> <!-- Version conflict with the previous version -->
     </dependency>
 
     <!-- Non-existent dependency -->
